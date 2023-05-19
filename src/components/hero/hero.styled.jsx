@@ -11,10 +11,7 @@ export const Hero = Styled.section`
     left: 50%;
     width: 100vw;
     height: ${getRem(360)};
-    background-image: url('src/assets/images/bg-hero.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('https://iili.io/HgA0igf.png') no-repeat center center / cover;
     border-radius: 50%;
     transform-origin: bottom;
     transform: translateX(-50%) scale(2.5);
