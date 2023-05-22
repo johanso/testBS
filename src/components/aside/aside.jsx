@@ -19,7 +19,7 @@ const Aside = ({ isOpen, onClose }) => {
   return (
     <Styled.Aside className={isOpen ? 'open' : ''}>
       <Styled.AsideHead>
-        <img src={Arrowback} alt="back" onClick={onClose} />
+        <img src={Arrowback} className="close" alt="back" onClick={onClose} />
         <img src={Logo} alt="icon logo" />
         <img src={Flag} alt="icon back" />
       </Styled.AsideHead>

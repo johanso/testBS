@@ -17,6 +17,9 @@ export const Aside = Styled.aside`
   &.open {
     left: 0;
   }
+  .close {
+    cursor: pointer;
+  }
 `
 export const AsideHead = Styled.div`
   display: flex;
@@ -28,6 +31,7 @@ export const AsideBody = Styled.div`
 export const AsideItem = Styled.div`
   font: normal normal var(--font-medium) ${getRem(22)}/1.2 var(--font-base);
   margin-bottom: ${getRem(40)};
+  cursor: pointer;
 `
 export const AsideFooter = Styled.div`
   margin-bottom: ${getRem(40)};

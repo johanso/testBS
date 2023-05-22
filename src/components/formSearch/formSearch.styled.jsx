@@ -69,4 +69,5 @@ export const ButtonSearch = Styled.button`
   border-radius: ${getRem(8)};
   border: none;
   box-shadow: 0 0 0 ${getRem(6)} var(--color-secondary), 0 ${getRem(4)} ${getRem(2)} ${getRem(6)} var(--color-gray6);
+  cursor: pointer;
 `

@@ -10,15 +10,21 @@ import CalendarTo from '../../svg/IconCalendar-to.svg'
 import Search from '../../svg/Search.svg'
 
 const FormSearch = () => {
+  const [inputLocation, setInputlocation] = useState('')
   const [dateUno, setDateUno] = useState(null)
   const [dateDos, setDateDos] = useState(null)
 
   const today = new Date();
   const tomorrow = new Date(Date.now() + ( 3600 * 1000 * 24));
   const format = "DD MMM"
+  const formatYear = "DD MMM YYYY"
 
   const handleSubmit = (e) => {
     e.preventDefault()
+  }
+
+  const handleLocation = (value) => {
+    setInputlocation(value)
   }
 
   return (
@@ -31,7 +37,9 @@ const FormSearch = () => {
             id="pickup"
             placeholder="Ciudad, aeropuerto o dirección" 
             type="text"
-            label="Localidad de Retiro" />
+            label="Localidad de Retiro" 
+            handleLocation={handleLocation}
+            />
         </Styled.InputGrid>
       </Styled.ContainerInput>
 
@@ -46,7 +54,7 @@ const FormSearch = () => {
           <DatePicker
             showToday={false}
             format={format}
-            onChange={(date) => setDateUno(date)}
+            onChange={(date) => setDateUno(moment.utc(date.$d.getTime()).format(formatYear))}
             suffixIcon={false}
             bordered={false}
             placeholder={ moment.utc(today).format(format) }
@@ -59,7 +67,7 @@ const FormSearch = () => {
           <DatePicker
             showToday={false}
             format={format}
-            onChange={(date) => setDateDos(date)}
+            onChange={(date) => setDateDos(moment.utc(date.$d.getTime()).format(formatYear))}
             suffixIcon={false}
             bordered={false}
             placeholder={ moment.utc(tomorrow).format(format) }

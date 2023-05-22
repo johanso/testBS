@@ -13,9 +13,8 @@ export const Left = Styled.div`
   display: flex;
   align-items: center;
   gap: ${getRem(20)};
-  .menu img {
+  .menu {
     cursor: pointer;
-    pointer-events: none;
   }
 `
 export const Right = Styled.div`
