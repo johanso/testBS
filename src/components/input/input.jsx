@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Styled from './input.styled'
 
-const Input = ({ placeholder, label, pickup, type, handleLocation }) => {
+const Input = ({ placeholder, label, pickup, type, value, handleLocation }) => {
 
   return (
     <Styled.Input>
@@ -11,6 +11,7 @@ const Input = ({ placeholder, label, pickup, type, handleLocation }) => {
         type={type} 
         id={pickup} 
         placeholder={placeholder} 
+        value={value}
         onChange={(e) => handleLocation(e.target.value)}
       />
     </Styled.Input>

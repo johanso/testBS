@@ -8,11 +8,13 @@ import Iconcar from '../../svg/Iconcar.svg'
 import CalendarFrom from '../../svg/IconCalendar-from.svg'
 import CalendarTo from '../../svg/IconCalendar-to.svg'
 import Search from '../../svg/Search.svg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FormSearch = () => {
-  const [inputLocation, setInputlocation] = useState('')
-  const [dateUno, setDateUno] = useState(null)
-  const [dateDos, setDateDos] = useState(null)
+  const [inputLocation, setInputlocation] = useState("")
+  const [dateUno, setDateUno] = useState("")
+  const [dateDos, setDateDos] = useState("")
 
   const today = new Date();
   const tomorrow = new Date(Date.now() + ( 3600 * 1000 * 24));
@@ -21,6 +23,12 @@ const FormSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if( inputLocation === "" || dateUno.trim() === "" || dateDos.trim() === "" ) {
+      toast.error('Todos los campos son requeridos');
+      return
+    } 
+    toast.success('Realizando consulta');
+    setInputlocation("")
   }
 
   const handleLocation = (value) => {
@@ -39,6 +47,7 @@ const FormSearch = () => {
             type="text"
             label="Localidad de Retiro" 
             handleLocation={handleLocation}
+            value={inputLocation}
             />
         </Styled.InputGrid>
       </Styled.ContainerInput>
@@ -79,6 +88,13 @@ const FormSearch = () => {
         <img src={Search} alt="icon search" width="26" />
       </Styled.ButtonSearch>
 
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+      />
     </Styled.FormSearch>
   )
 }
